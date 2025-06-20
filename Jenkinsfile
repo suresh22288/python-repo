@@ -42,8 +42,7 @@ pipeline {
                 from: "suresh22288@gmail.com",                
                 to: "${EMAIL_RECIPIENT}",
                 subject: "Build Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: 'Build Successful',
-                mimeType: 'text/html'
+                body: 'Build Successful'
             )
         }
 
