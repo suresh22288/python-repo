@@ -39,10 +39,13 @@ pipeline {
         success {
             echo "Build succeeded. Sending success email to ${EMAIL_RECIPIENT}"
             emailext(
-                from: "suresh22288@gmail.com",                
                 to: "${EMAIL_RECIPIENT}",
-                subject: "Build Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: '${SCRIPT, template="success.groovy"}',
+                subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+                <p>Hello ${params.name},</p>
+                <p>Your Jenkins build <b>${env.JOB_NAME} #${env.BUILD_NUMBER}</b> completed successfully.</p>
+                <p>View it <a href="${env.BUILD_URL}">here</a>.</p>
+                """,
                 mimeType: 'text/html'
             )
         }
