@@ -21,8 +21,8 @@ pipeline {
 
         stage('Execute Python Script') {
             steps {
-                echo "Running main.py with PARAM1=${params.PARAM1} and PARAM2=${params.PARAM2}"
-                sh "python main.py ${params.PARAM1}"
+                echo "Running main.py with PARAM1=${params.name} and PARAM2=${params.emailid}"
+                sh "python main.py ${params.name}"
             }
         }
 
