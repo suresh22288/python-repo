@@ -41,7 +41,7 @@ pipeline {
             emailext(
                 to: "${EMAIL_RECIPIENT}",
                 subject: "Build Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: '${SCRIPT, template="success.groovy"}',
+                body: 'Build Successful',
                 mimeType: 'text/html'
             )
         }
@@ -51,7 +51,7 @@ pipeline {
             emailext(
                 to: "${EMAIL_RECIPIENT}",
                 subject: "Build Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: '${SCRIPT, template="failure.groovy"}',
+                body: 'Build failed',
                 mimeType: 'text/html'
             )
         }
